@@ -5,34 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLP Course Advertisement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(45deg, #1a1a2e, #16213e);
-    color: #fff;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 130vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            color: #fff;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 130vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-.main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 780px; /* Maximum width for larger screens */
-    min-width: 320px; /* Minimum width for smaller screens */
-    height: auto;
-}
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 780px;
+            min-width: 320px;
+            height: auto;
+        }
+
         h1 {
             margin-bottom: 20px;
             font-size: 2rem;
@@ -82,6 +84,7 @@
             background-color: #ff6f61;
         }
 
+        /* Particle styling */
         .particles {
             position: absolute;
             top: 0;
@@ -137,17 +140,10 @@
 
             .logo {
                 width: auto;
-                margin-top: -20vh; /* Adjust this value to push the image down */
+                margin-top: -20vh;
             }
         }
 
-
-@media (max-width: 380px) {
-            .logo {
-                width: auto;
-                margin-top: 10vh; /* Adjust this value to push the image down */
-            }
-        }
         
     </style>
 </head>
@@ -160,6 +156,7 @@
             alt="Tshwane University of Technology Logo" class="logo">
         <h1>SLP Course Offerings</h1>
 
+        <!-- Course Offerings -->
         <div class="course">
             <h2>Legal Knowledge Course</h2>
             <p>Enhance your legal understanding with our Occupational Hygiene course at TICE.</p>
@@ -183,25 +180,225 @@
     </div>
 
     <script>
-        // Particle animation
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 50;
+        // Floating Particles
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 80;
 
         for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-
-            const size = Math.random() * 5 + 1;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-
-            particle.style.left = `${Math.random() * 100}%`;
+            const particle = document.createElement("div");
+            particle.classList.add("particle");
+            particle.style.width = `${Math.random() * 8}px`;
+            particle.style.height = particle.style.width;
             particle.style.top = `${Math.random() * 100}%`;
-
-            const duration = Math.random() * 20 + 10;
-            particle.style.animation = `float ${duration}s infinite`;
-
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animation = `float ${2 + Math.random() * 2}s ease-in-out infinite`;
             particlesContainer.appendChild(particle);
+</script>
+
+
+    <style>/* Footer styling */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2e3057c4;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+    
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .footer-content p {
+            margin: 0;
+            margin-right: 10px;
+        }
+    
+        /* Futuristic button styling */
+        #designer-info-btn {
+            background-color: #00f7ff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.4), 0 0 80px rgba(0, 255, 255, 0.1);
+        }
+    
+        #designer-info-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.9), 0 0 60px rgba(0, 255, 255, 0.6), 0 0 100px rgba(0, 255, 255, 0.3);
+        }
+    
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .modal-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            text-align: left;
+            color: #000;
+        }
+    
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    
+        .close-button {
+            margin-top: 20px;
+            background-color: #ff4b5c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .close-button:hover {
+            background-color: #ff6f61;
+        }
+        .designer-contact, .socials {
+    margin-top: 20px;
+    }
+    
+    .label {
+    font-size: 16px;
+    font-weight: bold;
+    }
+    
+    .info {
+    margin-top: 5px;
+    display: block;
+    color: #1e90ff;
+    text-decoration: none;
+    font-size: 14px;
+    }
+    
+    .info:hover {
+    text-decoration: underline;
+    }
+    
+    .socials a {
+    margin-right: 15px;
+    color: #1e90ff;
+    text-decoration: none;
+    }
+    
+    .socials a:hover {
+    text-decoration: underline;
+    }
+    
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 15px;
+                width: 100%;
+            }
+    
+            .close-btn {
+                font-size: 20px;
+                top: 5px;
+                right: 15px;
+            }
+        }</style>
+        
+    <!-- Designer Modal -->
+<div id="designer-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Designer Information</h2>
+        <p>Brilliant Malepe is a versatile designer known for crafting impactful logos, captivating posters, dynamic animated videos, and user-friendly apps.</p>
+        <p>Brilliant also offers top-notch smartphones (iPhones, Samsung, Huawei) and laptops.</p>
+        
+        <!-- Contact Information -->
+        <div class="designer-contact">
+            <div class="label"><i class="fas fa-phone"></i> Contact Number:</div>
+            <a href="tel:+27726171976" class="info">0726171976</a>
+        </div>
+        
+        <div class="designer-contact">
+            <div class="label"><i class="far fa-envelope"></i> Email:</div>
+            <a href="mailto:malepebrilliant03@gmail.com" class="info">malepebrilliant03@gmail.com</a>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="socials">
+            <button><a href="https://instagram.com/brilliant_malepe"><i class="fab fa-instagram"></i> Instagram</a></button>
+            <a href="https://linkedin.com/in/brilliant-malepe"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+        
+        <!-- WhatsApp Chat -->
+        <div class="designer-contact">
+            <div class="label"><i class="fab fa-whatsapp"></i> WhatsApp Chat:</div>
+            <a href="https://wa.me/27726171976" class="info">Chat with the Designer</a>
+        </div>
+        
+        <!-- Close Button -->
+        <button class="close-button">Close</button>
+    </div>
+</div>
+
+    <!-- Futuristic Button to Open Modal -->
+    <footer>
+        <div class="footer-content">
+            <p>Designed by: Malepe Brilliant</p>
+            <button id="designer-info-btn">More About the Designer</button>
+        </div>
+    </footer>
+
+    
+    <!-- JS for Particles and Modal Interaction -->
+    
+
+<script>
+        // Modal Popup Handling
+        const modal = document.getElementById("designer-modal");
+        const btn = document.getElementById("designer-info-btn");
+        const closeBtn = document.querySelector(".close-btn");
+        const closeButton = document.querySelector(".close-button");
+
+        btn.onclick = function () {
+            modal.style.display = "flex";
+        }
+
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        closeButton.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
