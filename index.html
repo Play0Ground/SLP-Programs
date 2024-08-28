@@ -195,211 +195,268 @@
             particlesContainer.appendChild(particle);
 </script>
 
+<style>/* Footer styling */
+    footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #2e3057c4;
+    color: white;
+    text-align: center;
+    padding: 5px; /* Decreased padding */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
 
-    <style>/* Footer styling */
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #2e3057c4;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-    
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    
-        .footer-content p {
-            margin: 0;
-            margin-right: 10px;
-        }
-    
-        /* Futuristic button styling */
-        #designer-info-btn {
-            background-color: #00f7ff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.4), 0 0 80px rgba(0, 255, 255, 0.1);
-        }
-    
-        #designer-info-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.9), 0 0 60px rgba(0, 255, 255, 0.6), 0 0 100px rgba(0, 255, 255, 0.3);
-        }
-    
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1001;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-    
-        .modal-content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-            text-align: left;
-            color: #000;
-        }
-    
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-    
-        .close-button {
-            margin-top: 20px;
-            background-color: #ff4b5c;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    
-        .close-button:hover {
-            background-color: #ff6f61;
-        }
-        .designer-contact, .socials {
-    margin-top: 20px;
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; /* Adjust font size */
+}
+
+.footer-content p {
+    margin: 0;
+    margin-right: 5px; /* Decreased margin */
+    font-size: 12px; /* Adjust font size */
+}
+
+    /* Futuristic button styling */
+    #designer-info-btn {
+        background-color: #00f7ff;
+        color: #000;
+        border: none;
+        padding: 5px 10px;
+        font-size: 10px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.4), 0 0 80px rgba(0, 255, 255, 0.1);
     }
-    
-    .label {
-    font-size: 16px;
-    font-weight: bold;
+
+    #designer-info-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.9), 0 0 60px rgba(0, 255, 255, 0.6), 0 0 100px rgba(0, 255, 255, 0.3);
     }
-    
-    .info {
-    margin-top: 5px;
+
+    /* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    text-align: left;
+    color: #000;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.contact-button {
     display: block;
-    color: #1e90ff;
-    text-decoration: none;
+    background-color: #007bff; /* Blue color for contact buttons */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 10px;
+    width: 100%;
     font-size: 14px;
-    }
-    
-    .info:hover {
-    text-decoration: underline;
-    }
-    
-    .socials a {
-    margin-right: 15px;
-    color: #1e90ff;
     text-decoration: none;
-    }
+}
+
+.contact-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.social-button {
+    background-color: #28a745; /* Green color for social buttons */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.social-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.close-button {
+    margin-top: 20px;
+    background-color: #ff4b5c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #ff6f61;
+}
+
+    .designer-contact, .socials {
+margin-top: 20px;
+}
+
+.label {
+font-size: 16px;
+font-weight: bold;
+}
+
+.info {
+margin-top: 5px;
+display: block;
+color: #1e90ff;
+text-decoration: none;
+font-size: 14px;
+}
+
+.info:hover {
+text-decoration: underline;
+}
+
+.socials a {
+margin-right: 15px;
+color: #1e90ff;
+text-decoration: none;
+}
+
+.socials a:hover {
+text-decoration: underline;
+}
+
+    @media (max-width: 480px) {
+        .modal-content {
+            padding: 15px;
+            width: 100%;
+        }
+
+        .close-btn {
+            font-size: 20px;
+            top: 5px;
+            right: 15px;
+        }
+    }</style>
     
-    .socials a:hover {
-    text-decoration: underline;
-    }
-    
-        @media (max-width: 480px) {
-            .modal-content {
-                padding: 15px;
-                width: 100%;
-            }
-    
-            .close-btn {
-                font-size: 20px;
-                top: 5px;
-                right: 15px;
-            }
-        }</style>
-        
-    <!-- Designer Modal -->
+<!-- Designer Modal -->
 <div id="designer-modal" class="modal">
     <div class="modal-content">
-        <span class="close-btn">&times;</span>
+        <span class="close-btn"></span>
         <h2>Designer Information</h2>
-        <p>Brilliant Malepe is a tech enthusiast and versatile designer known for crafting impactful logos, captivating posters, dynamic animated videos, and user-friendly apps just like these. Studied or studies Bachelor of Environmental Health at the Tshwane University of Technilogy</p>
+        <p>Brilliant Malepe is a versatile designer known for crafting impactful logos, captivating posters, dynamic animated videos, and user-friendly apps like this one. With a background in Environmental Health from the Tshwane University of Technology, he is recognized also for his technical expertise and creativity, bringing fresh and innovative ideas to live</p>
+        
         
         <!-- Contact Information -->
         <div class="designer-contact">
-            <div class="label"><i class="fas fa-phone"></i> Contact Number:</div>
-            <a href="tel:+27726171976" class="info">0726171976</a>
+            <button class="contact-button" onclick="window.location.href='tel:+27726171976';">
+                <i class="fas fa-phone"></i> 0726171976
+            </button>
         </div>
         
         <div class="designer-contact">
-            <div class="label"><i class="far fa-envelope"></i> Email:</div>
-            <a href="mailto:malepebrilliant03@gmail.com" class="info">malepebrilliant03@gmail.com</a>
+            <button class="contact-button" onclick="window.location.href='mailto:malepebrilliant04@gmail.com';">
+                <i class="far fa-envelope"></i> malepebrilliant04@gmail.com
+            </button>
         </div>
         
         <!-- Social Links -->
         <div class="socials">
-            <button><a href="https://instagram.com/brilliant_malepe"><i class="fab fa-instagram"></i> Instagram</a></button>
-            <a href="https://linkedin.com/in/brilliant-malepe"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <button class="social-button" onclick="window.location.href='https://instagram.com/brilliant_malepe';">
+                <i class="fab fa-instagram"></i> Instagram
+            </button>
+            <button class="social-button" onclick="window.location.href='https://linkedin.com/in/brilliant-malepe';">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
         </div>
         
         <!-- WhatsApp Chat -->
         <div class="designer-contact">
-            <div class="label"><i class="fab fa-whatsapp"></i> WhatsApp Chat:</div>
-            <a href="https://wa.me/27726171976" class="info">Chat with the Designer</a>
+            <button class="contact-button" onclick="window.location.href='https://wa.me/27726171976';">
+                <i class="fab fa-whatsapp"></i> Chat with the Designer
+            </button>
         </div>
         
         <!-- Close Button -->
         <button class="close-button">Close</button>
     </div>
+
+    
 </div>
 
-    <!-- Futuristic Button to Open Modal -->
-    <footer>
-        <div class="footer-content">
-            <p>Designed by: Malepe Brilliant</p>
-            <button id="designer-info-btn">More About the Designer</button>
-        </div>
-    </footer>
 
-    
-    <!-- JS for Particles and Modal Interaction -->
-    
+
+<!-- Futuristic Button to Open Modal -->
+<footer>
+    <div class="footer-content">
+        <p>Coded by: Malepe Brilliant</p>
+        <button id="designer-info-btn">More About the Designer</button>
+    </div>
+</footer>
+
+
+<!-- JS for Particles and Modal Interaction -->
+
 
 <script>
-        // Modal Popup Handling
-        const modal = document.getElementById("designer-modal");
-        const btn = document.getElementById("designer-info-btn");
-        const closeBtn = document.querySelector(".close-btn");
-        const closeButton = document.querySelector(".close-button");
+    // Modal Popup Handling
+    const modal = document.getElementById("designer-modal");
+    const btn = document.getElementById("designer-info-btn"); // Ensure this ID is assigned to your button
+    const closeBtn = document.querySelector(".close-btn");
+    const closeButton = document.querySelector(".close-button");
 
-        btn.onclick = function () {
-            modal.style.display = "flex";
-        }
+    // Show the modal
+    btn.onclick = function () {
+        modal.style.display = "flex";
+    }
 
-        closeBtn.onclick = function () {
+    // Hide the modal when the close (X) icon is clicked
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // Hide the modal when the "Close" button is clicked
+    closeButton.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // Hide the modal when clicking outside the modal content
+    window.onclick = function (event) {
+        if (event.target == modal) {
             modal.style.display = "none";
         }
+    }
+</script>
 
-        closeButton.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+   
 </body>
 
 </html>
